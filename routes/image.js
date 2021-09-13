@@ -57,7 +57,7 @@ router.get('/get-all-image', middleware.authenticateJWT, function (req, res, nex
 });
 
 router.post('/upload-one', (req, res) => {
-    let upload = multer({ storage: storage, fileFilter: helpers.imageFilter, limits: { fileSize: 2 * 1024 * 1024 } }).single('vivexelt_pic');
+    let upload = multer({ storage: storage, fileFilter: helpers.imageFilter, limits: { fileSize: 2 * 1024 * 1024 } }).single('ce_pic');
     upload(req, res, function (err) {
 
         if (req.fileValidationError) {
@@ -135,7 +135,7 @@ router.post('/upload-multiple', (req, res) => {
 
 router.put('/update-image/:id', middleware.authenticateJWT, function (req, res, next) {
     const id = req.params.id;
-    let upload = multer({ storage: storage, limits: { fileSize: 2 * 1024 * 1024 } }).single('vivexelt_pic');
+    let upload = multer({ storage: storage, limits: { fileSize: 2 * 1024 * 1024 } }).single('ce_pic');
     upload(req, res, function (err) {
         if (req.fileValidationError) {
             return res.send(req.fileValidationError);
